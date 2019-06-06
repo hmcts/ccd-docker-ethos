@@ -216,9 +216,15 @@ function project_build() {
 function docker_build() {
     project=$1
     branch=$2
-    workspace=$(workspace_dir $project)
-    tagName=$(tag_name $project $branch)
-    (cd $workspace && docker build . -t hmcts/$project:$tagName || exit $?)
+        if [ "$project" == "ccd-api-gateway" ]; then
+            workspace=$(workspace_dir $project)
+            tagName=$(tag_name $project $branch)
+            (cd $workspace && docker build . -t hmcts/${project}-web:$tagName || exit $?)
+        else
+            workspace=$(workspace_dir $project)
+            tagName=$(tag_name $project $branch)
+            (cd $workspace && docker build . -t hmcts/$project:$tagName || exit $?)
+        fi
 }
 
 function available_compose_files() {
