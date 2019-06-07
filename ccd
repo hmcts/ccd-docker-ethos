@@ -4,7 +4,7 @@ TAGS_FILE=".tags.env"
 WORKSPACE_ROOT=".workspace"
 
 # Build related
-GRADLE_ASSEMBLE_CMD="./gradlew assemble"
+#GRADLE_ASSEMBLE_CMD="./gradlew assemble"
 
 function project_config() {
     project=$1
@@ -205,6 +205,7 @@ function tag_name() {
 function project_build() {
     project=$1
     workspace=$(workspace_dir $project)
+    GRADLE_ASSEMBLE_CMD="docker run -it --rm -v $(pwd)/${workspace}:/opt openjdk:8u212-slim bash -c \"cd /opt && ./gradlew assemble\""
     buildCommand=$(project_config $project buildCommand)
     # Build if required
     if [ -n "$buildCommand" ]; then
