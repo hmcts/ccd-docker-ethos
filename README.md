@@ -45,8 +45,11 @@ Creating and starting the containers:
 ```bash
 ./ccd compose up -d
 ```
+Wait for a couple of minutes or watch the logs using ./ccd compose logs -f - wait for everything to calm down.
 
-Setup for employment tribunals (wait for a couple of minutes for system to start before next command)
+Then...
+
+Setup for employment tribunals 
 
 ```bash
 ./ccd et_setup
