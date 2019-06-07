@@ -46,6 +46,21 @@ Creating and starting the containers:
 ./ccd compose up -d
 ```
 
+Setup for employment tribunals (wait for a couple of minutes for system to start before next command)
+
+```bash
+./ccd et_setup
+```
+
+(NOTE: This creates a user with email 'm@m.com' and password 'p' - use these details when logging in to the UI as they exist in the config files and will just work)
+
+Upload definition
+
+```bash
+./bin/ccd-import-definition.sh "<path to config file>"
+```
+
+
 Usage and commands available:
 
 ```bash
