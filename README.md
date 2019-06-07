@@ -24,7 +24,7 @@
 Checkout `ccd-docker` project:
 
 ```bash
-git clone git@github.com:hmcts/ccd-docker.git
+git clone git@github.com:hmcts/ccd-docker-ethos.git
 ```
 
 Login to the Azure Container registry:
