@@ -74,61 +74,6 @@ Usage and commands available:
 
 Once the containers are running, CCD's frontend can be accessed at [http://localhost:3451](http://localhost:3451).
 
-However, 3 more steps are required to correctly configure IDAM and CCD before it can be used:
-
-### 1. Create a caseworker user
-
-A caseworker user can be created in IDAM using the following command:
-
-```bash
-./bin/idam-create-caseworker.sh <roles> <email> [password] [surname] [forename]
-```
-
-Parameters:
-- `roles`: a comma-separated list of roles. Roles must be existing IDAM roles for the CCD domain. Every caseworker requires at least it's coarse-grained jurisdiction role (`caseworker-<jurisdiction>`).
-- `email`: Email address used for logging in.
-- `password`: Optional. Password for logging in. Defaults to `password`.
-
-For example:
-
-```bash
-./bin/idam-create-caseworker.sh caseworker-probate,caseworker-probate-solicitor probate@hmcts.net
-```
-
-### 2. Add roles
-
-Before a definition can be imported, roles referenced in a case definition Authorisation tabs must be defined in CCD using:
-
-```bash
-./bin/ccd-add-role.sh <role> [classification]
-```
-
-Parameters:
-- `role`: Name of the role, e.g: `caseworker-divorce`.
-- `classification`: Optional. One of `PUBLIC`, `PRIVATE` or `RESTRICTED`. Defaults to `PUBLIC`.
-
-### 3. Import case definition
-
-To reduce impact on performances, case definitions are imported via the command line rather than using CCD's dedicated UI:
-
-```bash
-./bin/ccd-import-definition.sh <path_to_definition>
-```
-
-Parameters:
-- `path_to_definition`: Path to `.xlsx` file containing the case definition.
-
-**Note:** For CCD to work, the definition must contain the caseworker's email address created at [step 1](#1-create-a-caseworker-user).
-
-If the import fails with an error of the form:
-
-```
-Validation errors occurred importing the spreadsheet.
-
-- Invalid IdamRole 'caseworker-cmc-loa1' in AuthorisationCaseField tab, case type 'MoneyClaimCase', case field 'submitterId', crud 'CRUD'
-```
-
-Then the indicated role, here `caseworker-cmc-loa1`, must be added to CCD (See [2. Add roles](#2-add-roles)).
 
 ### Ready for take-off 🛫
 
