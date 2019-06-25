@@ -4,7 +4,7 @@ TAGS_FILE=".tags.env"
 WORKSPACE_ROOT=".workspace"
 
 # Build related
-#GRADLE_ASSEMBLE_CMD="./gradlew assemble"
+GRADLE_ASSEMBLE_CMD="./gradlew assemble"
 
 function project_config() {
     project=$1
@@ -217,15 +217,15 @@ function project_build() {
 function docker_build() {
     project=$1
     branch=$2
-        if [ "$project" == "ccd-api-gateway" ]; then
-            workspace=$(workspace_dir $project)
-            tagName=$(tag_name $project $branch)
-            (cd $workspace && docker build . -t hmcts/${project}-web:$tagName || exit $?)
-        else
-            workspace=$(workspace_dir $project)
-            tagName=$(tag_name $project $branch)
-            (cd $workspace && docker build . -t hmcts/$project:$tagName || exit $?)
-        fi
+    buildProject=$project
+    workspace=$(workspace_dir $project)
+    tagName=$(tag_name $project $branch)
+    # ccd-api-gateway image from azure coming as ccd-api-gateway-web, to match and fix for local branch build
+    if [[ $project == "ccd-api-gateway" && $branch != "master" ]]; then
+        buildProject="$buildProject-web"
+    fi
+
+    (cd $workspace && docker build . -t hmcts/$buildProject:$tagName || exit $?)
 }
 
 function available_compose_files() {
