@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+gem 'capybara', '~> 3.24'
+gem 'selenium-webdriver', '~> 3.142', '>= 3.142.3'
