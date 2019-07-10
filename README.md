@@ -20,6 +20,7 @@
 
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) - minimum version 2.0.57 
 - [jq Json Processor] (https://stedolan.github.io/jq)
+- [Ruby Version Manager] (https://rvm.io/) - FOR et_setup command only
 
 *The following documentation assumes that the current directory is `ccd-docker`.*
 
@@ -53,7 +54,7 @@ Wait for a couple of minutes or watch the logs using ./ccd compose logs -f - wai
 
 Then...
 
-Setup for employment tribunals 
+Setup for employment tribunals (note - needs rvm installing - see prerequisites)
 
 ```bash
 ./ccd et_setup

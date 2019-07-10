@@ -78,5 +78,3 @@ puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-glasgow-caseofficer`
 puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-glasgow-casesupervisor`
 puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-glasgow`
 puts `../bin/idam-create-caseworker.sh caseworker,caseworker-employment-tribunal-manchester-caseofficer,caseworker-employment-tribunal-manchester-casesupervisor,caseworker-employment,caseworker-employment-tribunal-manchester,caseworker-employment-tribunal-glasgow-caseofficer,caseworker-employment-tribunal-glasgow-casesupervisor,caseworker-employment-tribunal-glasgow m@m.com Pa55word11 Lightyear Buzz`
-
-sleep 10

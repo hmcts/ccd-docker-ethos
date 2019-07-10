@@ -11,6 +11,8 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    childprocess (1.0.1)
+      rake (< 13.0)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     nokogiri (1.10.3)
@@ -19,7 +21,12 @@ GEM
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rake (12.3.2)
     regexp_parser (1.5.1)
+    rubyzip (1.2.3)
+    selenium-webdriver (3.142.3)
+      childprocess (>= 0.5, < 2.0)
+      rubyzip (~> 1.2, >= 1.2.2)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -28,6 +35,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (~> 3.24)
+  selenium-webdriver (~> 3.142, >= 3.142.3)
 
 BUNDLED WITH
    1.17.3

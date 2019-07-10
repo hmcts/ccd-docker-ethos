@@ -535,20 +535,10 @@ function ccd_login() {
     az acr login --name hmcts --subscription 1c4f0704-a29e-403d-b719-b90c34ef14c9
 }
 
-function ccd_et_setup_roles() {
-    ./ccd compose exec ccd-shared-database /tmp/et_private/ccd-add-et-roles.sh
-}
-
 function ccd_et_setup() {
-    ccd_et_setup_roles
-    ./bin/idam-create-caseworker.sh caseworker,caseworker-employment-tribunal-manchester-caseofficer,caseworker-employment-tribunal-manchester-casesupervisor,caseworker-employment,caseworker-employment-tribunal-manchester,caseworker-employment-tribunal-glasgow-caseofficer,caseworker-employment-tribunal-glasgow-casesupervisor,caseworker-employment-tribunal-glasgow m@m.com p Lightyear Buzz
-    ./bin/ccd-add-role.sh caseworker-employment-tribunal-manchester-caseofficer
-    ./bin/ccd-add-role.sh caseworker-employment-tribunal-manchester-casesupervisor
-    ./bin/ccd-add-role.sh caseworker-employment
-    ./bin/ccd-add-role.sh caseworker-employment-tribunal-manchester
-    ./bin/ccd-add-role.sh caseqworker-employment-tribunal-glasgow-caseofficer
-    ./bin/ccd-add-role.sh caseworker-employment-tribunal-glasgow-casesupervisor
-    ./bin/ccd-add-role.sh caseworker-employment-tribunal-glasgow
+    cd idam_setup
+    bundle install
+    bash --login -c "ruby ./run.rb"
 }
 
 if [ $# -lt 1 ]; then
