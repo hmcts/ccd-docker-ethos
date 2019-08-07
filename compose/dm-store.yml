@@ -47,6 +47,8 @@ services:
       IDAM_USER_BASE_URI: http://sidam-api:5000
       IDAM_S2S_BASE_URI: http://service-auth-provider-api:8080
       S2S_NAMES_WHITELIST: sscs,divorce,ccd,em_gw,document-management-store,ccd_gw,idam-api,fpl_case_service
+      DM_MULTIPART_WHITELIST: image/jpeg,application/pdf,image/tiff,image/png,image/bmp,text/plain,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.wordprocessingml.template,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.spreadsheetml.template,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.openxmlformats-officedocument.presentationml.template,application/vnd.openxmlformats-officedocument.presentationml.slideshow
+      DM_MULTIPART_WHITELIST_EXT: .jpg,.jpeg,.bmp,.tif,.tiff,.png,.pdf,.txt,.doc,.dot,.docx,.dotx,.xls,.xlt,.xla,.xlsx,.xltx,.xlsb,.ppt,.pot,.pps,.ppa,.pptx,.potx,.ppsx
       http_proxy:
       https_proxy:
       no_proxy:
@@ -77,6 +79,7 @@ services:
       - 4506:8080
     #   debug port exposed
     #   - 5006:5005
+    restart: on-failure
 
   azure-storage-emulator-azurite:
     image: arafato/azurite
