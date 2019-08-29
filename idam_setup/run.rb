@@ -70,6 +70,7 @@ add_role.call('caseworker-employment-tribunal-glasgow-caseofficer', selecting: [
 add_role.call('caseworker-employment-tribunal-manchester-caseofficer', selecting: ['caseworker', 'caseworker-employment', 'caseworker-employment-tribunal-manchester'])
 add_role.call('caseworker-employment-tribunal-glasgow-casesupervisor', selecting: ['caseworker', 'caseworker-employment', 'caseworker-employment-tribunal-glasgow'])
 add_role.call('caseworker-employment-tribunal-manchester-casesupervisor', selecting: ['caseworker', 'caseworker-employment', 'caseworker-employment-tribunal-manchester'])
+add_role.call('caseworker-employment-tribunal-api', selecting: ['caseworker', 'caseworker-employment', 'caseworker-employment-tribunal-glasgow', 'caseworker-employment-tribunal-manchester'])
 puts `../bin/ccd-add-role.sh caseworker-employment`
 puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-manchester-caseofficer`
 puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-manchester-casesupervisor`
@@ -77,4 +78,5 @@ puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-manchester`
 puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-glasgow-caseofficer`
 puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-glasgow-casesupervisor`
 puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-glasgow`
-puts `../bin/idam-create-caseworker.sh caseworker,caseworker-employment-tribunal-manchester-caseofficer,caseworker-employment-tribunal-manchester-casesupervisor,caseworker-employment,caseworker-employment-tribunal-manchester,caseworker-employment-tribunal-glasgow-caseofficer,caseworker-employment-tribunal-glasgow-casesupervisor,caseworker-employment-tribunal-glasgow m@m.com Pa55word11 Lightyear Buzz`
+puts `../bin/ccd-add-role.sh caseworker-employment-tribunal-api`
+puts `../bin/idam-create-caseworker.sh caseworker,caseworker-employment-tribunal-manchester-caseofficer,caseworker-employment-tribunal-manchester-casesupervisor,caseworker-employment,caseworker-employment-tribunal-manchester,caseworker-employment-tribunal-glasgow-caseofficer,caseworker-employment-tribunal-glasgow-casesupervisor,caseworker-employment-tribunal-glasgow,caseworker-employment-tribunal-api m@m.com Pa55word11 Lightyear Buzz`
